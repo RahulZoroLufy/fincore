@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "EventEnvelope",
+  "namespace": "com.fincore.contracts.common",
+  "doc": "Common envelope for all FinCore Kafka events. Carries metadata plus a serialized domain payload.",
+  "fields": [
+    { "name": "eventId",       "type": "string",  "doc": "Unique event identifier (UUID)." },
+    { "name": "eventType",     "type": "string",  "doc": "Event type name, e.g. TransactionCreated." },
+    { "name": "eventVersion",  "type": "int",     "doc": "Schema version of the payload." },
+    { "name": "timestamp",     "type": { "type": "long", "logicalType": "timestamp-millis" }, "doc": "Event creation time (UTC)." },
+    { "name": "correlationId", "type": ["null", "string"], "default": null, "doc": "Traces a business flow across services." },
+    { "name": "causationId",   "type": ["null", "string"], "default": null, "doc": "The eventId that caused this event." },
+    { "name": "payload",       "type": "bytes",   "doc": "Avro-serialized domain event payload." }
+  ]
+}
