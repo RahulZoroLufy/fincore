@@ -55,7 +55,7 @@
   <modules>
     <module>fincore-contracts</module>
     <module>fincore-common</module>
-<!--    <module>fincore-customer-service</module>-->
+    <module>fincore-customer-service</module>
   </modules>
 
   <dependencyManagement>
